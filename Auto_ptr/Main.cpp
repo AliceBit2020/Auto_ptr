@@ -72,6 +72,34 @@ void main()
 
 
 
+	////////////////////////  new Foo[5]
+
+	Foo** arr_foo = new Foo*[5];
+
+
+	for (int i = 0; i < 5; i++)
+	{
+		arr_foo[i] = new Foo(i+1);
+
+	}
+
+	
+
+
+	std::unique_ptr<unique_ptr<Foo*>[]> arr(new unique_ptr<Foo*> [5] );
+
+
+
+	for (int i = 0; i < 5; i++)
+	{
+		
+		arr[i]= make_unique<Foo*>(new Foo(i + 1));
+
+		
+		cout << arr[i]<<" : " << (*(arr[i]))->GetNumber() << endl;
+	}
+
+
 
 
 	//cout << p1.get()->GetNumber() << endl;
